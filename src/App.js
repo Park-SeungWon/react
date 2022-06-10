@@ -1,5 +1,6 @@
 //import logo from './logo.svg';
 import "./App.css";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Link,
   Route,
@@ -12,6 +13,16 @@ import DifficultyRank from "./Rank2/DifficultyRank";
 import Settings from "./Settings/Settings";
 
 function App() {
+  const [settingsValue, setSettingsValue] = useState();
+ 
+  const onChange = (key, value) => {
+    setSettingsValue({
+      name: "GameUser1",
+      mode: "test",
+      gametext: "arial",
+    });
+  };
+
   return (
     <Router>
       <header>
@@ -27,7 +38,7 @@ function App() {
         <Link to="/diffcultyRank">
           <button>난이도별랭킹</button>
         </Link>
-        <Link to="/settings">
+        <Link to="/option">
           <button>환경설정</button>
         </Link>
       </header>
@@ -38,7 +49,10 @@ function App() {
         <Route path="/game" component={Game} />
         <Route path="/allRank" component={Rank1} />
         <Route path="/diffcultyRank" component={DifficultyRank} />
-        <Route path="/settings" element={<Settings settingsValue={this.state.settingsValue} />} />
+        <Route
+          path="/option"
+          element={<Settings  settingsValue={settingsValue} />}
+        />
       </main>
     </Router>
   );

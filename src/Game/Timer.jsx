@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Board.css";
 
 export default function Timer(props) {
@@ -7,12 +7,12 @@ export default function Timer(props) {
   const [timeSet, setTimeSet] = useState(false);
   const [SendData, setSendData] = useState(false);
 
-  const Timeout = () => {
+  const Timeout = useCallback(() => {
     if (!SendData) {
       props.onChange("mode", "0");
       props.TimeOut();
     }
-  };
+  }, [SendData, props]);
 
   useEffect(() => {
     if (!timeSet) {

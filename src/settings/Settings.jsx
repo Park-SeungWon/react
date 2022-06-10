@@ -2,7 +2,6 @@ import React from "react";
 import ModeChange from "./ModeChange";
 import NameChange from "./NameChange";
 import TextChange from "./TextChange";
-import Game from "../Game/Game";
 
 export default function Settings(props) {
   const [nameValue, setNameValue] = React.useState("");
@@ -17,7 +16,7 @@ export default function Settings(props) {
             ["b", "보통"],
             ["c", "어려움"],
           ]}
-          value={props.settingsValue.gamemode}
+          value={props.settingsValue.mode}
           onChange={(evt) => props.onChange("mode", evt.target.value)}
         />
       </div>

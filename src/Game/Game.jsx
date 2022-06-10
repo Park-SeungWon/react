@@ -12,14 +12,12 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "user1",
       score: 0,
-      mode: "a",
       word: "소나기",
 
       settingsValue: {
-        gamemode: 0,
-        username: "GameUser",
+        name: "GameUser1",
+        mode: "test",
         gametext: "arial",
       },
     };
@@ -50,9 +48,9 @@ class Game extends Component {
     let today = new Date();
     const result = [
       {
-        username: this.state.name,
+        username: this.state.settingsValue.name,
         score: this.state.score,
-        mode: this.state.mode,
+        mode: this.state.settingsValue.mode,
         date: today,
       },
     ];
@@ -64,14 +62,14 @@ class Game extends Component {
       <div>
         <div>
           <ul>
-            <li className="user_inpo">이름 : {this.state.name}</li>
+            <li className="user_inpo">이름 : {this.state.settingsValue.name}</li>
             <li className="user_inpo">점수 : {this.state.score}</li>
-            <li className="user_inpo">난이도: {this.state.mode}</li>
+            <li className="user_inpo">난이도: {this.state.settingsValue.mode}</li>
           </ul>
         </div>
         <p className="Timer">
           <Timer
-            mode={this.state.mode}
+            mode={this.state.settingsValue.mode}
             onChange={this.onChange}
             TimeOut={this.TimeOut}
           />
