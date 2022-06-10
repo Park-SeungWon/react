@@ -8,21 +8,17 @@ import {
 } from "react-router-dom";
 import Home from "./Home";
 import Game from "./Game/Game";
-import Rank1 from "./Rank1/Rank1";
+import AllRank from "./AllRank/AllRank";
 import DifficultyRank from "./Rank2/DifficultyRank";
 import Settings from "./Settings/Settings";
 
 function App() {
   const [settingsValue, setSettingsValue] = useState();
- 
-  const onChange = (key, value) => {
-    setSettingsValue({
-      name: "GameUser1",
-      mode: "test",
-      gametext: "arial",
-    });
+  const updateSettingsValue = (key, value) => {
+    let modifiedSettings = JSON.parse(JSON.stringify(settingsValue));
+    modifiedSettings[key] = value;
+    setSettingsValue(modifiedSettings);
   };
-
   return (
     <Router>
       <header>
@@ -47,11 +43,18 @@ function App() {
       <main>
         <Route exact path="/" component={Home} />
         <Route path="/game" component={Game} />
-        <Route path="/allRank" component={Rank1} />
+        <Route path="/allRank" component={AllRank} />
         <Route path="/diffcultyRank" component={DifficultyRank} />
         <Route
           path="/option"
-          element={<Settings  settingsValue={settingsValue} />}
+          element={
+            <Settings
+              settingsValue={settingsValue}
+              updateSettingsValue={(key, value) =>
+                updateSettingsValue(key, value)
+              }
+            />
+          }
         />
       </main>
     </Router>

@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import Input from "./Input";
 import Word from "./Word";
 import Timer from "./Timer";
-import Rank1 from "./../Rank1/Rank1";
+import AllRank from "../AllRank/AllRank";
 
 import "./Board.css";
 import Settings from "./../Settings/Settings";
@@ -54,7 +54,7 @@ class Game extends Component {
         date: today,
       },
     ];
-    Rank1(result);
+    AllRank(result);
     // alert(tempnick);
   }
   render() {

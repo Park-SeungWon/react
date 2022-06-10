@@ -3,7 +3,7 @@ import ModeChange from "./ModeChange";
 import NameChange from "./NameChange";
 import TextChange from "./TextChange";
 
-export default function Settings(props) {
+function Settings(props) {
   const [nameValue, setNameValue] = React.useState("");
 
   return (
@@ -42,3 +42,4 @@ export default function Settings(props) {
     </>
   );
 }
+export default Settings;
