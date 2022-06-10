@@ -6,14 +6,14 @@ import Timer from "./Timer";
 import Rank1 from "./../Rank1/Rank1";
 
 import "./Board.css";
-import Settings from "./../settings/Settings";
+import Settings from "./../Settings/Settings";
 
 class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "홍길동씨",
-      score: 2050,
+      name: "user1",
+      score: 0,
       mode: "test",
       word: "소나기",
 
@@ -34,7 +34,7 @@ class Game extends Component {
       [key]: value,
     });
   }
-  
+
   CheckAnswer(value) {
     if (this.state.word === value) {
       this.setState({
@@ -62,13 +62,6 @@ class Game extends Component {
   render() {
     return (
       <div>
-        <Settings
-          settingsValue={this.state.settingsValue}
-          onChange={(key, value) =>
-            this.onChange(key, value)
-          }
-        />
-
         <p className="Timer">
           <Timer
             mode={this.state.mode}
@@ -94,6 +87,10 @@ class Game extends Component {
             <li className="user_inpo">난이도: {this.state.mode}</li>
           </ul>
         </div>
+        <Settings
+          settingsValue={this.state.settingsValue}
+          onChange={(key, value) => this.onChange(key, value)}
+        />
       </div>
     );
   }

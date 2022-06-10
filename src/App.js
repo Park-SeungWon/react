@@ -1,16 +1,47 @@
-import React, { Component } from "react";
+//import logo from './logo.svg';
+import "./App.css";
+import {
+  Link,
+  Route,
+  /*Switch*/ BrowserRouter as Router,
+} from "react-router-dom";
+import Home from "./Home";
 import Game from "./Game/Game";
-import Rank from "./Rank1/Rank1";
-import Settings from "./settings/Settings";
+import Rank1 from "./Rank1/Rank1";
+import DifficultyRank from "./Rank2/DifficultyRank";
+import Settings from "./Settings/Settings";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Game />
-        <Rank />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <header>
+        <Link to="/">
+          <button>홈</button>
+        </Link>
+        <Link to="/game">
+          <button>게임</button>
+        </Link>
+        <Link to="/allRank">
+          <button>전체랭킹</button>
+        </Link>
+        <Link to="/diffcultyRank">
+          <button>난이도별랭킹</button>
+        </Link>
+        <Link to="/option">
+          <button>환경설정</button>
+        </Link>
+      </header>
+      <hr />
+
+      <main>
+        <Route exact path="/" component={Home} />
+        <Route path="/game" component={Game} />
+        <Route path="/allRank" component={Rank1} />
+        <Route path="/diffcultyRank" component={DifficultyRank} />
+        <Route path="/option" component={Settings} />
+      </main>
+    </Router>
+  );
 }
+
 export default App;
