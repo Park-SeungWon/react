@@ -38,15 +38,20 @@ export default function Timer(props) {
       }
       setTimeSet(true);
     }
-    
+
+    if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
+      Timeout();
+      setSendData(true);
+    }
+  }, [minutes, seconds, timeSet, setTimeSet, props.mode, Timeout, setSendData]);
+
+  useEffect(() => {
     const countdown = setInterval(() => {
       if (parseInt(seconds) > 0) {
         setSeconds(parseInt(seconds) - 1);
       }
       if (parseInt(seconds) === 0) {
         if (parseInt(minutes) === 0) {
-          Timeout();
-          setSendData(true);
           clearInterval(countdown);
         } else {
           setMinutes(parseInt(minutes) - 1);
@@ -57,7 +62,7 @@ export default function Timer(props) {
     return () => {
       clearInterval(countdown);
     };
-  }, [minutes, seconds, timeSet, setTimeSet, props.mode]);
+  }, [minutes, seconds]);
 
   return (
     <div className="App">

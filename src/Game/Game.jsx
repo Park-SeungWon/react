@@ -14,7 +14,7 @@ class Game extends Component {
     this.state = {
       name: "user1",
       score: 0,
-      mode: "test",
+      mode: "a",
       word: "소나기",
 
       settingsValue: {
@@ -62,6 +62,13 @@ class Game extends Component {
   render() {
     return (
       <div>
+        <div>
+          <ul>
+            <li className="user_inpo">이름 : {this.state.name}</li>
+            <li className="user_inpo">점수 : {this.state.score}</li>
+            <li className="user_inpo">난이도: {this.state.mode}</li>
+          </ul>
+        </div>
         <p className="Timer">
           <Timer
             mode={this.state.mode}
@@ -80,13 +87,7 @@ class Game extends Component {
           onChange={this.onChange}
           onEnter={this.CheckAnswer}
         />
-        <div>
-          <ul>
-            <li className="user_inpo">이름 : {this.state.name}</li>
-            <li className="user_inpo">점수 : {this.state.score}</li>
-            <li className="user_inpo">난이도: {this.state.mode}</li>
-          </ul>
-        </div>
+
         <Settings
           settingsValue={this.state.settingsValue}
           onChange={(key, value) => this.onChange(key, value)}

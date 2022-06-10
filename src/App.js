@@ -27,7 +27,7 @@ function App() {
         <Link to="/diffcultyRank">
           <button>난이도별랭킹</button>
         </Link>
-        <Link to="/option">
+        <Link to="/settings">
           <button>환경설정</button>
         </Link>
       </header>
@@ -38,7 +38,7 @@ function App() {
         <Route path="/game" component={Game} />
         <Route path="/allRank" component={Rank1} />
         <Route path="/diffcultyRank" component={DifficultyRank} />
-        <Route path="/option" component={Settings} />
+        <Route path="/settings" element={<Settings settingsValue={this.state.settingsValue} />} />
       </main>
     </Router>
   );

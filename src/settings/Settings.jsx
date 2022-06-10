@@ -2,8 +2,11 @@ import React from "react";
 import ModeChange from "./ModeChange";
 import NameChange from "./NameChange";
 import TextChange from "./TextChange";
+import Game from "../Game/Game";
 
 export default function Settings(props) {
+  const [nameValue, setNameValue] = React.useState("");
+
   return (
     <>
       <div style={{ marginTop: "20px", marginBottom: "20px" }}>
@@ -15,9 +18,7 @@ export default function Settings(props) {
             ["c", "어려움"],
           ]}
           value={props.settingsValue.gamemode}
-          onChange={(evt) =>
-            props.onChange("mode", evt.target.value)
-          }
+          onChange={(evt) => props.onChange("mode", evt.target.value)}
         />
       </div>
 
@@ -26,9 +27,8 @@ export default function Settings(props) {
           MenuTitleString={"사용자 이름 변경"}
           TextInputPlaceholder={"이름 입력..."}
           ButtonString={"입력"}
-          onChange={(evt) =>
-            props.onChange("name", evt.target.value)
-          }
+          onChange={(evt) => setNameValue(evt.target.value)}
+          onClick={() => props.onChange("name", nameValue)}
         />
       </div>
 
@@ -37,9 +37,7 @@ export default function Settings(props) {
           MenuTitleString={"폰트 변경"}
           DropMenuArray={[["arial", "arial"]]}
           value={props.settingsValue.gametext}
-          onChange={(evt) =>
-            props.onChange("gametext", evt.target.value)
-          }
+          onChange={(evt) => props.onChange("gametext", evt.target.value)}
         />
       </div>
     </>
