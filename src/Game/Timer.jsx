@@ -40,10 +40,10 @@ export default function Timer(props) {
       setTimeSet(props.mode);
     }
 
-    if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
-      // Timeout();
-      // props.TimeOut();
-    }
+    // if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
+    //   Timeout();
+    //   props.TimeOut();
+    // }
   }, [minutes, seconds, timeSet, setTimeSet, props, Timeout, setSendData]);
 
   useEffect(() => {

@@ -14,7 +14,7 @@ class Game extends Component {
     super(props);
     this.state = {
       name: "GameUser1",
-      mode: "test",
+      mode: "a",
       score: 0,
       word: "소나기",
       gametext: "고딕",
@@ -24,7 +24,6 @@ class Game extends Component {
     this.TimeOut = this.TimeOut.bind(this);
   }
 
-  // 설정 값을 바꿔주는 함수입니다.
   onChange(key, value) {
     this.setState({
       [key]: value,
