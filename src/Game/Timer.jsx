@@ -4,18 +4,19 @@ import "./Board.css";
 export default function Timer(props) {
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(0);
-  const [timeSet, setTimeSet] = useState(false);
+  const [timeSet, setTimeSet] = useState("0");
   const [SendData, setSendData] = useState(false);
 
   const Timeout = useCallback(() => {
     if (!SendData) {
       props.onChange("mode", "0");
       props.TimeOut();
+      setSendData(true);
     }
-  }, [SendData, props]);
+  }, [SendData, props, setSendData]);
 
   useEffect(() => {
-    if (!timeSet) {
+    if (timeSet !== props.mode) {
       if (props.mode === "a") {
         setMinutes(1);
         setSeconds(0);
@@ -36,12 +37,11 @@ export default function Timer(props) {
         setMinutes(0);
         setSeconds(2);
       }
-      //setTimeSet(true);
+      setTimeSet(props.mode);
     }
 
     if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
       Timeout();
-      setSendData(true);
     }
   }, [minutes, seconds, timeSet, setTimeSet, props.mode, Timeout, setSendData]);
 
