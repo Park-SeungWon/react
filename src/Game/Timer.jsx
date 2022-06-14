@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect /*useCallback*/ } from "react";
 import "./Board.css";
 
 export default function Timer(props) {
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(0);
   const [timeSet, setTimeSet] = useState("0");
-  const [SendData, setSendData] = useState(false);
+  //const [SendData, setSendData] = useState(false);
 
-  const Timeout = useCallback(() => {
-    if (!SendData) {
-      props.onChange("mode", "0");
-      props.TimeOut();
-      setSendData(true);
-    }
-  }, [SendData, props, setSendData]);
+  // const Timeout = useCallback(() => {
+  //   if (!SendData) {
+  //     props.onChange("mode", "0");
+  //     props.TimeOut();
+  //     setSendData(true);
+  //   }
+  // }, [SendData, props, setSendData]);
 
   useEffect(() => {
     if (timeSet !== props.mode) {
@@ -41,9 +41,15 @@ export default function Timer(props) {
     }
 
     if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
-      Timeout();
+      //Timeout();
     }
-  }, [minutes, seconds, timeSet, setTimeSet, props.mode, Timeout, setSendData]);
+  }, [
+    minutes,
+    seconds,
+    timeSet,
+    setTimeSet,
+    props.mode /*Timeout, setSendData*/,
+  ]);
 
   useEffect(() => {
     const countdown = setInterval(() => {

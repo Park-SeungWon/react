@@ -41,7 +41,7 @@ class Game extends Component {
     }
   }
   TimeOut() {
-    alert("데이터 전송.");
+    //alert("데이터 전송.");
     //var tempnick = prompt("원하는 닉네임을 입력해 주세요");
     let today = new Date();
     const result = {
