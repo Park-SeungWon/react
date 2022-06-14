@@ -36,7 +36,7 @@ export default function Timer(props) {
         setMinutes(0);
         setSeconds(2);
       }
-      setTimeSet(true);
+      //setTimeSet(true);
     }
 
     if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
