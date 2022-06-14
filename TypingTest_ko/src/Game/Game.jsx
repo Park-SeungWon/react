@@ -4,6 +4,7 @@ import Input from "./Input";
 import Word from "./Word";
 import Timer from "./Timer";
 import AllRank from "../AllRank/AllRank";
+import Rank2 from "../Rank2/DifficultyRank"
 
 import "./Board.css";
 import Settings from "./../Settings/Settings";
@@ -55,6 +56,7 @@ class Game extends Component {
       },
     ];
     AllRank(result);
+    Rank2(result);
     // alert(tempnick);
   }
   render() {
