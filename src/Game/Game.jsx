@@ -14,7 +14,7 @@ class Game extends Component {
     super(props);
     this.state = {
       name: "GameUser1",
-      mode: "d",
+      mode: "test",
       score: 0,
       word: "소나기",
       gametext: "고딕",
@@ -44,14 +44,12 @@ class Game extends Component {
     alert("데이터 전송.");
     //var tempnick = prompt("원하는 닉네임을 입력해 주세요");
     let today = new Date();
-    const result = [
-      {
-        username: this.state.name,
-        score: this.state.score,
-        mode: this.state.mode,
-        date: today,
-      },
-    ];
+    const result = {
+      username: this.state.name,
+      score: this.state.score,
+      mode: this.state.mode,
+      date: today,
+    };
     AllRank(result);
     Rank2(result);
     // alert(tempnick);
