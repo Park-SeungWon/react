@@ -18,7 +18,7 @@ class Game extends Component {
 
       settingsValue: {
         name: "GameUser1",
-        mode: "test",
+        mode: "d",
         gametext: "arial",
       },
     };
