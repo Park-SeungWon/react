@@ -1,19 +1,19 @@
-import React, { useState, useEffect /*useCallback*/ } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./Board.css";
 
 export default function Timer(props) {
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(0);
   const [timeSet, setTimeSet] = useState("0");
-  //const [SendData, setSendData] = useState(false);
+  const [SendData, setSendData] = useState(false);
 
-  // const Timeout = useCallback(() => {
-  //   if (!SendData) {
-  //     props.onChange("mode", "0");
-  //     props.TimeOut();
-  //     setSendData(true);
-  //   }
-  // }, [SendData, props, setSendData]);
+  const Timeout = useCallback(() => {
+    if (!SendData) {
+      props.onChange("mode", "0");
+      props.TimeOut();
+      setSendData(true);
+    }
+  }, [SendData, props, setSendData]);
 
   useEffect(() => {
     if (timeSet !== props.mode) {
@@ -41,15 +41,10 @@ export default function Timer(props) {
     }
 
     if (parseInt(seconds) === 0 && parseInt(minutes) === 0) {
-      //Timeout();
+      // Timeout();
+      // props.TimeOut();
     }
-  }, [
-    minutes,
-    seconds,
-    timeSet,
-    setTimeSet,
-    props.mode /*Timeout, setSendData*/,
-  ]);
+  }, [minutes, seconds, timeSet, setTimeSet, props, Timeout, setSendData]);
 
   useEffect(() => {
     const countdown = setInterval(() => {
@@ -59,6 +54,7 @@ export default function Timer(props) {
       if (parseInt(seconds) === 0) {
         if (parseInt(minutes) === 0) {
           clearInterval(countdown);
+          props.TimeOut();
         } else {
           setMinutes(parseInt(minutes) - 1);
           setSeconds(59);
@@ -68,7 +64,7 @@ export default function Timer(props) {
     return () => {
       clearInterval(countdown);
     };
-  }, [minutes, seconds]);
+  }, [minutes, seconds, props]);
 
   return (
     <div className="App">
