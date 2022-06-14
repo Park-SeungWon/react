@@ -5,7 +5,7 @@ function Rank2(result) {
   const [header, setHeader] = useState();
   const [data, setData] = useState();
 
-  const userdata = result;
+  // const userdata = result;
 
   useEffect(() => {
     setData({
@@ -25,7 +25,7 @@ function Rank2(result) {
         }
       }
     }
-  }, []);
+  }, [data]);
 
   return (
     <table>

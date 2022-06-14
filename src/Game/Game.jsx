@@ -4,7 +4,7 @@ import Input from "./Input";
 import Word from "./Word";
 import Timer from "./Timer";
 import AllRank from "../AllRank/AllRank";
-import Rank2 from "../Rank2/DifficultyRank"
+import Rank2 from "../Rank2/DifficultyRank";
 
 import "./Board.css";
 import Settings from "./../Settings/Settings";
@@ -13,14 +13,11 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "GameUser1",
+      mode: "d",
       score: 0,
       word: "소나기",
-
-      settingsValue: {
-        name: "GameUser1",
-        mode: "d",
-        gametext: "arial",
-      },
+      gametext: "고딕",
     };
     this.onChange = this.onChange.bind(this);
     this.CheckAnswer = this.CheckAnswer.bind(this);
@@ -49,9 +46,9 @@ class Game extends Component {
     let today = new Date();
     const result = [
       {
-        username: this.state.settingsValue.name,
+        username: this.state.name,
         score: this.state.score,
-        mode: this.state.settingsValue.mode,
+        mode: this.state.mode,
         date: today,
       },
     ];
@@ -64,14 +61,15 @@ class Game extends Component {
       <div>
         <div>
           <ul>
-            <li className="user_inpo">이름 : {this.state.settingsValue.name}</li>
+            <li className="user_inpo">이름 : {this.state.name}</li>
             <li className="user_inpo">점수 : {this.state.score}</li>
-            <li className="user_inpo">난이도: {this.state.settingsValue.mode}</li>
+            <li className="user_inpo">난이도: {this.state.mode}</li>
+            <li className="user_inpo">폰트: {this.state.gametext}</li>
           </ul>
         </div>
         <p className="Timer">
           <Timer
-            mode={this.state.settingsValue.mode}
+            mode={this.state.mode}
             onChange={this.onChange}
             TimeOut={this.TimeOut}
           />
@@ -89,7 +87,7 @@ class Game extends Component {
         />
 
         <Settings
-          settingsValue={this.state.settingsValue}
+          //settingsValue={this.state.settingsValue}
           onChange={(key, value) => this.onChange(key, value)}
         />
       </div>

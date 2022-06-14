@@ -16,7 +16,7 @@ function Settings(props) {
             ["b", "보통"],
             ["c", "어려움"],
           ]}
-          value={props.settingsValue.mode}
+          value={props.mode}
           onChange={(evt) => props.onChange("mode", evt.target.value)}
         />
       </div>
@@ -35,7 +35,7 @@ function Settings(props) {
         <TextChange
           MenuTitleString={"폰트 변경"}
           DropMenuArray={[["arial", "arial"]]}
-          value={props.settingsValue.gametext}
+          value={props.gametext}
           onChange={(evt) => props.onChange("gametext", evt.target.value)}
         />
       </div>

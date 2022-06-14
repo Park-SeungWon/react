@@ -1,19 +1,19 @@
 import React from "react";
 
-function ShowRank({ results }) {
-  const style = {
-    border: "1px solid black",
-    padding: "8px",
-    margin: "8px",
-  };
+// function ShowRank({ results }) {
+//   const style = {
+//     border: "1px solid black",
+//     padding: "8px",
+//     margin: "8px",
+//   };
 
-  return (
-    <div style={style}>
-      {/* {results.rank}등 / */}
-      닉네임 : {results.username} <span> / 점수 : {results.score}</span>{" "}
-    </div>
-  );
-}
+//   return (
+//     <div style={style}>
+//       {/* {results.rank}등 / */}
+//       닉네임 : {results.username} <span> / 점수 : {results.score}</span>{" "}
+//     </div>
+//   );
+// }
 const style = {
   border: "1px solid black",
   padding: "8px",

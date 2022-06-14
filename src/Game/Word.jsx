@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import propTypes from "prop-types";
 import Wordlist from "./Wordlist";
 import "./Board.css";
@@ -28,7 +28,9 @@ class Word extends PureComponent {
     for (let i = 0; i < this.state.wordlist.length; i++) {
       randomidx = Math.round(Math.random() * (this.state.wordlist.length - 1));
       temp = this.state.wordlist[randomidx];
+      // eslint-disable-next-line react/no-direct-mutation-state
       this.state.wordlist[randomidx] = this.state.wordlist[i];
+      // eslint-disable-next-line react/no-direct-mutation-state
       this.state.wordlist[i] = temp;
     }
     this.handleChange();
